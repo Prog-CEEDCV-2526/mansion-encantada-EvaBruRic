@@ -26,31 +26,49 @@ Requisits:
 public class MansionEmbrujada_v0 {
     public static void main(String[] args) {
         // Crear la variable Scanner per llegir per pantalla
+        Scanner sc = new Scanner(System.in);
         
         Random rand = new Random();
 
         // Crear variable sencera passos
+        int passos = 5;
 
         // Crear la variable booleana eixidaTrobada
+        boolean eixidaTrobada = false;
        
         // Mostrar per pantalla 🎃 Benvingut a la Mansió Embruixada 🎃
+        System.out.println("🎃 Benvingut a la Mansió Embruixada 🎃");
         
         // Mostrar per pantalla "Tens X passos per trobar l’eixida... Bona sort!"
+        System.out.println("Tens "+passos+ " pasos per trobar l'eixida...Bona sort!");
         
         // Mentre que passos siga major que 0 i no s’haja trobat l’eixida
-
+        while (passos > 0 && eixidaTrobada == false){
+            
             // Mostrar per pantalla "Porta esquerra (1) o dreta (2)?"
+            System.out.println("Porta esquerra (1) o dreta (2)?");
             // Crear variable per a l’elecció de l’usuari
+            int eleccio_usuari;
 
             // Recollir elecció de l’usuari amb la variable Scanner
+            eleccio_usuari = sc.nextInt();
 
             int portaCorrectaAlAzar = rand.nextInt(2) + 1;
 
             // Si l’elecció és igual a portaCorrectaAlAzar
+            if(eleccio_usuari == portaCorrectaAlAzar){
                 // Mostrar per pantalla "✅ Has trobat l’eixida! Escapes de la mansió..." i canviar eixidaTrobada a true
-            // Si no, restar passos i mostrar per pantalla "👻 Un fantasma t’espanta! Et queden " + passos + " passos."
-
-        
-            // Si no has trobat l’eixida mostrar per pantalla "💀 S’han acabat els passos... La mansió t’atrapa per sempre!"
+                System.out.println("✅ Has trobat l’eixida! Escapes de la mansió...");
+                eixidaTrobada = true;
+            }else{// Si no, restar passos i mostrar per pantalla "👻 Un fantasma t’espanta! Et queden " + passos + " passos."
+                passos -= 1;
+                System.out.println("👻 Un fantasma t’espanta! Et queden "+passos+ " passos.");
+            } 
+        }
+        // Si no has trobat l’eixida mostrar per pantalla "💀 S’han acabat els passos... La mansió t’atrapa per sempre!"
+        if(eixidaTrobada == false){
+            System.out.println("💀 S’han acabat els passos... La mansió t’atrapa per sempre!");
+        }
     }
 }
+
